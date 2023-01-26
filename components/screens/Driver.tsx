@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, Button } from 'react-native'
 import { NavigationProp, ParamListBase } from '@react-navigation/native'
 
-import { styles } from './styles'
+import { styles } from '../styles'
 import { IDriver } from './interfaces'
 
 interface IProps {

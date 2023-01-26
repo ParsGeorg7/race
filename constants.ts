@@ -13,9 +13,14 @@ export const TAG_TYPE_DRIVER_RACE = 'DriverRace'
 export const POSTS_LIMIT = 10
 export const OFFSET = 10
 export const ZERO = 0
+export const SCROLL_EVENT_THROTTLE = 150
 
+export enum ROUTE {
+    Driver = 'Driver',
+    RaceTable = 'RaceTable'
+}
 
-export const ROUTE = {
-    Driver: 'Driver',
-    RaceTable: 'RaceTable'
+export enum LOADER_POSITION {
+    Center = 'center',
+    Bottom = 'bottom'
 }

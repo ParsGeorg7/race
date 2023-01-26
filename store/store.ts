@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { driverAPI } from '../services/postService'
 import driversReducer from './reducers/DriversSlice'
-import driverRacesReducer from './reducers/DriverRacesSlice'
+//import driverRacesReducer from './reducers/DriverRacesSlice'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 
@@ -11,8 +11,7 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-  driversReducer,
-  driverRacesReducer,
+  drivers: driversReducer,
   [driverAPI.reducerPath]: driverAPI.reducer
 })
 
@@ -30,4 +29,8 @@ export const setupStore = () => {
   })
 }
 
-export const persistor = persistStore(setupStore())
+const store = setupStore()
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+export const persistor = persistStore(store)

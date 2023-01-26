@@ -1,19 +1,21 @@
 import React from 'react'
 import { TouchableOpacity, Text } from 'react-native'
-import { NavigationProp, ParamListBase } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 
 import { ROUTE } from '../../constants'
 
 import { IDriver } from './interfaces'
-import { styles } from './styles'
+import { styles } from '../styles'
 import { LOCALE } from './locale'
+import { MainNavigationProp } from './Drivers'
 
 interface IProps {
   item: IDriver
-  navigation: NavigationProp<ParamListBase> | any
 }
 
-export function DriverItem({ item, navigation }: IProps) {
+export function DriverItem({ item }: IProps) {
+  const navigation = useNavigation<MainNavigationProp>()
+
     return (
         <TouchableOpacity style={styles.listWrapper}>
           <Text style={styles.row} onPress={() => navigation?.navigate(ROUTE.Driver, item)}>{item.driverId}</Text>
